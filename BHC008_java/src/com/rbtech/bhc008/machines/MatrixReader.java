@@ -6,10 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -50,8 +48,10 @@ public class MatrixReader {
 	// use comma as separator to get all data for Job
 	static final String CSV_SPLIT_BY = ",";
 
+	
+	//  should be a List not Array List
 	public ArrayList<Job> createJobList(File jobsFile) {
-		jobList = new ArrayList<Job>();
+		ArrayList<Job>  jobs = new ArrayList<Job>();
 		try {
 			doPopulateJobListFromFile(jobsFile, jobList);
 		} catch (Exception e) {
@@ -59,7 +59,7 @@ public class MatrixReader {
 		}
 		
 		MessageLog.logNewMessage(MessageLog.UNDER_SCORE, MessageLog.LOG_TYPE_FORMAT);
-		return jobList;
+		return jobs;
 
 	}
 

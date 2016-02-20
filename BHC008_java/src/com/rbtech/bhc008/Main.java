@@ -11,6 +11,8 @@ import com.rbtech.bhc008.machines.MatrixReader;
 
 public class Main {
 
+	private static final String DEFAULT_JOBS_FILE_NAME = "S:\\Customer Services\\Oracle Reports\\Sys Admin\\BHC008_report_matrix.csv";
+
 	public static void main(String[] args) {
     
 		MessageLog.logNewMessage("Program Started", MessageLog.LOG_TYPE_INFO);
@@ -20,7 +22,11 @@ public class Main {
 		//preproc.setOracleSID();
 		
 		MatrixReader reader = new MatrixReader();
-	    ArrayList<Job> jobs = reader.createJobList(new File("S:\\Customer Services\\Oracle Reports\\Sys Admin\\BHC008_report_matrix.csv"));
+		
+		
+		
+		
+	    ArrayList<Job> jobs = reader.createJobList(getFile(args));
 		
 		JobProcessor processor = new JobProcessor();
 		boolean success = processor.processJobs(jobs);
@@ -30,4 +36,15 @@ public class Main {
 		System.out.println(MessageLog.outputAllMessages());
 	}
 
+	private static File getFile(String [] args) {
+		
+		
+		
+		
+		return new File(DEFAULT_JOBS_FILE_NAME);
+	}
+
+	
+	
+	
 }
