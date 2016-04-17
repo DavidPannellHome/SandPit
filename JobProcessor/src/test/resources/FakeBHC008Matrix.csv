@@ -1,0 +1,9 @@
+IsCurrent,ModuleName,ModuleDesc,isToFTP,ftpDest,ftpServer,isToEmail,EmailList,sourceServer,SourceDirectory,SourcefilesExtension,isToPrint PrinterName,PrintHeadorTail,NoLines,isToReporcess,processFrom,ProcessTo
+Y,bhb001,Fakename,Y,"S:\""HB Shared""\Control\bhb001",wap-whatever-blaa,N,djloki@yahoo.com|mike@sparx.gmail.com,uap-iworld,/spp/spool/RBLIVE/frb,.lis,N,,,N,,
+Y,bhb002,anotherface,Y,"S:\""HB Shared""\ManagementInfo",wap-whatever-blaa,N,djloki@yahoo.com,uap-iworld,/spp/spool/RBLIVE/frb,.csv,N,,,N,,
+Y,bhr001,Fakeagain,Y,"S:\""HB Shared""\ManagementInfo",wap-whatever-blaa,n,djloki@yahoo.com|atakamamusic@gmail.com,uap-iworld,/spp/spool/RBLIVE/frb,.lis,Y,Head,100,N,,
+Y,bhr123,moreFakery,Y,"S:\""HB Shared""\ManagementInfo",wap-whatever-blaa,n,djloki@yahoo.com,uap-iworld,/spp/spool/RBLIVE/bill,.csv,N,,,N,,
+N,bhr100,Naaaa,Y,"S:\""Rev Shared""\Control\bhr100",wap-whatever-blaa,n,djloki@yahoo.com,uap-iworld,/spp/spool/RBLIVE/fred,.txt,N,,,N,,
+Y,bhb100,Yeah,Y,"S:\""HB Shared""\Control\bhb100",wap-whatever-blaa,n,djloki@yahoo.com,uap-iworld,/spp/spool/RBLIVE/frb,.csv,N,,,N,,
+Y,bhb004,ohdear,N,"S:\""HB Shared""\Control\bhb004",wap-whatever-blaa,Y,djloki@yahoo.com,uap-iworld,/spp/spool/RBLIVE/frb,.lis,N,,,N,,
+Y,bhb005,hellodear,Y,"S:\""HB Shared""\Control\bhb005",wap-whatever-blaa,N,djloki@yahoo.com,uap-iworld,/spp/spool/RBLIVE/frb,.csv,N,,,N,,
