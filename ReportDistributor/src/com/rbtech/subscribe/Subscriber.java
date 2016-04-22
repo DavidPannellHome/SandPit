@@ -6,13 +6,18 @@ public class Subscriber {
 	
 	private String emailAddress;
 	//I think we talked about allowing a set of Notifications per user, at the moment just a single string value
-	private NotificationMessage notificationMessage;
+	private String notificationMessage;
+	
+	public void appendNotificationMessage(String notificationMessage) {
+		System.out.println("Appending message");
+		this.notificationMessage = this.notificationMessage + "\n\n" + notificationMessage;
+	}
 
-	public NotificationMessage getNotificationMessage() {
+	public String getNotificationMessage() {
 		return notificationMessage;
 	}
 
-	public void setNotificationMessage(NotificationMessage notificationMessage) {
+	public void setNotificationMessage(String notificationMessage) {
 		this.notificationMessage = notificationMessage;
 	}
 
@@ -22,6 +27,12 @@ public class Subscriber {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+	
+	public void showAll() {
+		System.out.println("Subscriber Email: " + getEmailAddress()
+		                 + "  Messages: " + getNotificationMessage());
+		
 	}
 	
 	Subscriber(String emailAddress) {
