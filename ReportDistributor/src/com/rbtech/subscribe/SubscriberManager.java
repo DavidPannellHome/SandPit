@@ -12,6 +12,16 @@ public class SubscriberManager {
 	//public void CreateSubscriberOrAppendMessage(String emailAddress, NotificationMessage notifMessage, SubscriberList subscriberList) {
 	public void CreateSubscriberOrAppendMessage(String emailAddress, String notifMessage, Map<String, Subscriber> subscriberList) {
 		//Test if emailAddress exists in the hashMap
+		
+//		uncomment and make compile  ... will lead to cleaner code
+//		if (subscriberExists(emailAddress)  == false){
+//			createSubscriber(emailAddress);
+//		}
+//		Subsciber subscriber = getSubscriber(emailAddress);
+//		subscriber.addMessage(emailAddress);
+//		
+		
+		
 		if ( subscriberList.containsKey(emailAddress) ) {
 			//if it does
 			//append the NotificationMessage to the existing Notif in for the Subscriber	

@@ -11,6 +11,8 @@ public class SubscriberListTesting {
 		Map <String, Subscriber> subscriberList = new HashMap<String, Subscriber>();
 		SubscriberManager subscriberManager = new SubscriberManager();
 		
+		
+		/// reame to send Message to Subscriber (the create can happen in the background user doesnt need to know) 
 		subscriberManager.CreateSubscriberOrAppendMessage("djloki@yahoo.com", "First message Text", subscriberList);
 		subscriberManager.CreateSubscriberOrAppendMessage("djloki@yahoo.com", "2nd message Text", subscriberList);
 		subscriberManager.CreateSubscriberOrAppendMessage("mike.sparx@gmail.com", "First message Text", subscriberList);
