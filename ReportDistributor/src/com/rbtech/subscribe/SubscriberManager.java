@@ -1,48 +1,62 @@
 package com.rbtech.subscribe;
 
-import com.rbtech.subscribe.SubscriberList;
-import com.rbtech.subscribe.Subscriber;
-import com.rbtech.subscribe.NotificationMessage;
-
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SubscriberManager {
 	
+	private Map <String, Subscriber> subscriberList = new HashMap<String, Subscriber>();
+	
 	//public void CreateSubscriberOrAppendMessage(String emailAddress, NotificationMessage notifMessage, SubscriberList subscriberList) {
-	public void CreateSubscriberOrAppendMessage(String emailAddress, String notifMessage, Map<String, Subscriber> subscriberList) {
-		//Test if emailAddress exists in the hashMap
+	public void CreateSubscriberOrAppendMessage(String emailAddress, String notifMessage) {
 		
-//		uncomment and make compile  ... will lead to cleaner code
-//		if (subscriberExists(emailAddress)  == false){
-//			createSubscriber(emailAddress);
-//		}
-//		Subsciber subscriber = getSubscriber(emailAddress);
-//		subscriber.addMessage(emailAddress);
-//		
-		
-		
-		if ( subscriberList.containsKey(emailAddress) ) {
-			//if it does
-			//append the NotificationMessage to the existing Notif in for the Subscriber	
-			System.out.println("Adding notification for subscriber: " + subscriberList.get(emailAddress));
-			//System.out.println((subscriberList.get(emailAddress)).getNotificationMessage);
-			
-			//Subscriber subscriberToUpdate = new Subscriber();
-			
-			subscriberList.get(emailAddress).appendNotificationMessage(notifMessage);
-
+		if (subscriberExists(emailAddress)  == false){
+			createSubscriber(emailAddress);
+			setNotificationMessage(emailAddress, notifMessage);			
 		}
 		else {
-		//if it doesn't
-		//Create a new Subscriber with the emailAddress and the NotificationMessage
-			Subscriber subscriber = new Subscriber(emailAddress);
-			subscriber.setNotificationMessage(notifMessage);
-			subscriberList.put(emailAddress, subscriber);
-			
-			System.out.println("Adding new subscriber: " + subscriberList.get(emailAddress));
-		
+			appendNotificationMessage(emailAddress, notifMessage);
 		}
 	}
 
+	private boolean subscriberExists(String emailAddress) {
+		//Would it be better to have a boolean variable to ensure the function returns with value? 
+		if ( subscriberList.containsKey(emailAddress) ) {
+	    	return true;
+	      }
+		else {
+			return false;
+		  }
+	}
+	
+	private void createSubscriber(String emailAddress) {
+		Subscriber subscriber = new Subscriber(emailAddress);
+        subscriberList.put(emailAddress, subscriber);
+		
+		System.out.println("Adding new subscriber: " + emailAddress);
+	}
+	
+    private void setNotificationMessage(String emailAddress, String notifMessage) {
+	    subscriberList.get(emailAddress).setNotificationMessage(notifMessage);
+	    System.out.println("Adding notification for subscriber: " + emailAddress);
+    }
+    
+    private void appendNotificationMessage(String emailAddress, String notifMessage) {
+ 	   subscriberList.get(emailAddress).appendNotificationMessage(notifMessage);
+	   System.out.println("Adding notification for subscriber: " + emailAddress);
+    }
+    
+    public void printList() {
+    	printAll(subscriberList);
+    }
+    
+    public static void printAll(Map <String, Subscriber> mp) {
+        System.out.println("\nAll entries in List");
+        System.out.println("===================");
+	    for(Map.Entry<String, Subscriber> entries : mp.entrySet()) {
+	    	//System.out.println(entries.getKey() + ": " + entries.getValue().getNotificationMessage());
+	    	entries.getValue().showAll();
+	    }
+	}
+	
 }

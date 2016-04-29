@@ -2,32 +2,25 @@ package com.rbtech.subscribe;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.rbtech.subscribe.SubscriberList;
 
 public class SubscriberListTesting {
 	
 	public static void main(String[] args) {
 		//SubscriberList subscriberList = new SubscriberList();
-		Map <String, Subscriber> subscriberList = new HashMap<String, Subscriber>();
+		
 		SubscriberManager subscriberManager = new SubscriberManager();
 		
 		
 		/// reame to send Message to Subscriber (the create can happen in the background user doesnt need to know) 
-		subscriberManager.CreateSubscriberOrAppendMessage("djloki@yahoo.com", "First message Text", subscriberList);
-		subscriberManager.CreateSubscriberOrAppendMessage("djloki@yahoo.com", "2nd message Text", subscriberList);
-		subscriberManager.CreateSubscriberOrAppendMessage("mike.sparx@gmail.com", "First message Text", subscriberList);
+		subscriberManager.CreateSubscriberOrAppendMessage("djloki@yahoo.com", "First message Text");
+		subscriberManager.CreateSubscriberOrAppendMessage("djloki@yahoo.com", "2nd message Text");
+		subscriberManager.CreateSubscriberOrAppendMessage("mike.sparx@gmail.com", "First message Text");
 
-	    printAll(subscriberList);
+	    subscriberManager.printList();
 		
 	}
 	
-	public static void printAll(Map <String, Subscriber> mp) {
-
-	    for(Map.Entry<String, Subscriber> entries : mp.entrySet()) {
-	    	//System.out.println(entries.getKey() + ": " + entries.getValue().getNotificationMessage());
-	    	entries.getValue().showAll();
-	    }
-	}
+	
 
 	public static void oldTests() {
         Map <String, Subscriber> subscriberList = new HashMap<String, Subscriber>();
