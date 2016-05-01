@@ -1,5 +1,7 @@
 package com.rbtech.subscribe;
 
+import java.util.ArrayList;
+
 import com.rbtech.subscribe.NotificationMessage;
 
 public class Subscriber {
@@ -7,6 +9,12 @@ public class Subscriber {
 	private String emailAddress;
 	//I think we talked about allowing a set of Notifications per user, at the moment just a single string value
 	private String notificationMessage;
+	private ArrayList<NotificationMessage> notifs = new ArrayList<NotificationMessage>();
+	
+	public void addNotification(String notifText) {
+		NotificationMessage notif = new NotificationMessage(notifText);
+		this.notifs.add(notif);
+	}
 	
 	public void appendNotificationMessage(String notificationMessage) {
 		System.out.println("Appending message");
@@ -31,8 +39,7 @@ public class Subscriber {
 	
 	public void showAll() {
 		System.out.println("Subscriber Email: " + getEmailAddress()
-		                 + "  Messages: " + getNotificationMessage());
-		
+		                 + "  Messages: " + getNotificationMessage());	
 	}
 	
 	Subscriber(String emailAddress) {

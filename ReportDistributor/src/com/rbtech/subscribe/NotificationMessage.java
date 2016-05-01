@@ -1,10 +1,29 @@
 package com.rbtech.subscribe;
 
+import java.text.SimpleDateFormat;
+import java.time.*;
+import java.util.Date;
+
 public class NotificationMessage {
-	//Currently just a string but we can extend this.
-	
+		
 	private String emailAddress;
 	private String notifMessageText;
+	private String timeDateStamp;
+	
+	NotificationMessage(String notifText){
+		setTimeDateStamp();
+		setNotifMessageText(notifText);
+	}
+
+	public String getTimeDateStamp() {
+		return timeDateStamp;
+	}
+
+	public void setTimeDateStamp() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String timeDateStamp = dateFormat.format(new Date());
+		this.timeDateStamp = timeDateStamp;
+	}
 
 	public String getEmailAddress() {
 		return emailAddress;

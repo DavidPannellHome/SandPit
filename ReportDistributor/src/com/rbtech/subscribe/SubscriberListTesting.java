@@ -30,11 +30,11 @@ public class SubscriberListTesting {
 		Subscriber subscriberTwo = new Subscriber("mike.sparx@gmail.com");
 		
 		//Some notifications
-		NotificationMessage notifOne = new NotificationMessage();
-		notifOne.setNotifMessageText("Hello David!");
+		//NotificationMessage notifOne = new NotificationMessage();
+		//notifOne.setNotifMessageText("Hello David!");
 		
-		NotificationMessage notifTwo = new NotificationMessage();
-		notifTwo.setNotifMessageText("Hello Mike!");
+		//NotificationMessage notifTwo = new NotificationMessage();
+		//notifTwo.setNotifMessageText("Hello Mike!");
 		
 		//Associate the notifications to subscribers
 		//subscriberOne.setNotificationMessage(notifOne);
