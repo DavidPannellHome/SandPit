@@ -46,6 +46,7 @@ public class SubscriberManager {
 	    System.out.println("Adding notification for subscriber: " + emailAddress);
     }
     
+    
     public void printList() {
     	printAll(subscribers);
     }
@@ -55,7 +56,7 @@ public class SubscriberManager {
         System.out.println("===================");
 	    for(Map.Entry<String, Subscriber> entries : mp.entrySet()) {
 	    	//System.out.println(entries.getKey() + ": " + entries.getValue().getNotificationMessage());
-	  //  	entries.getValue().showAll();
+	//    	entries.getValue().showAll();
 	    }
 	}
 	
