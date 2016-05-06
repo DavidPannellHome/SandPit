@@ -1,12 +1,10 @@
 package com.rbtech.subscribe;
 
 import java.text.SimpleDateFormat;
-import java.time.*;
 import java.util.Date;
 
 public class NotificationMessage {
 		
-	private String emailAddress;
 	private String notifMessageText;
 	private String timeDateStamp;
 	
@@ -25,20 +23,13 @@ public class NotificationMessage {
 		this.timeDateStamp = timeDateStamp;
 	}
 
-	public String getEmailAddress() {
-		return emailAddress;
-	}
-
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
-	}
-
 	public String getNotifMessageText() {
 		return notifMessageText;
 	}
 
 	public void setNotifMessageText(String notifMessageText) {
-		this.notifMessageText = notifMessageText;
+		setTimeDateStamp();
+		this.notifMessageText = getTimeDateStamp() + ":" + notifMessageText;
 	}
 	
 	public void appendNotifMessageText(String notifMessageText) {

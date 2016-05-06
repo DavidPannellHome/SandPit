@@ -6,21 +6,21 @@ import java.util.Map;
 public class SubscriberListTesting {
 	
 	public static void main(String[] args) {
-		//SubscriberList subscriberList = new SubscriberList();
 		
 		SubscriberManager subscriberManager = new SubscriberManager();
+		 
+		System.out.println("Adding notifications and creating Subscribers where necessary....");
+		System.out.println("=================================================================\n");
 		
-		
-		/// reame to send Message to Subscriber (the create can happen in the background user doesnt need to know) 
-		subscriberManager.addNotifToSubscriber("djloki@yahoo.com", "First message Text");
-		subscriberManager.addNotifToSubscriber("djloki@yahoo.com", "2nd message Text");
-		subscriberManager.addNotifToSubscriber("mike.sparx@gmail.com", "First message Text");
+		subscriberManager.addNotifToSubscriber("djloki@yahoo.com", "First notification text is here.");
+		subscriberManager.addNotifToSubscriber("djloki@yahoo.com", "Second notification text.  What time is love?");
+		subscriberManager.addNotifToSubscriber("djloki@yahoo.com", "Third notification text.  Justified and Ancient");
+		subscriberManager.addNotifToSubscriber("", "This should not create an email address but through an error instead");
+		subscriberManager.addNotifToSubscriber("mike.sparx@gmail.com", "First notification text for this user.");
 
 	    subscriberManager.printList();
 		
 	}
-	
-	
 
 	public static void oldTests() {
         Map <String, Subscriber> subscriberList = new HashMap<String, Subscriber>();

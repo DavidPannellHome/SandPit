@@ -27,4 +27,9 @@ public class Subscriber {
 		this.emailAddress = emailAddress;
 	}
 
+	public void showNotifications(){
+		for(NotificationMessage notificationMessage : notificationMessages) {
+            System.out.println(notificationMessage.getNotifMessageText());
+        }
+	}
 }

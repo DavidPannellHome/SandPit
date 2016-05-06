@@ -7,16 +7,22 @@ public class SubscriberManager {
 	
 	private Map <String, Subscriber> subscribers = new HashMap<String, Subscriber>();
 	
-	//public void CreateSubscriberOrAppendMessage(String emailAddress, NotificationMessage notifMessage, SubscriberList subscriberList) {
 	public void addNotifToSubscriber(String emailAddress, String notifMessage) {
 		
-		if (subscriberExists(emailAddress)  == false){
-			createSubscriber(emailAddress);		
+		//Not keen on this if then else - must be a better way to handle a null email address
+		if (emailAddress == "") {
+			System.out.println("No email address supplied, subscriber not created.");
 		}
-			
-		Subscriber subscriber = getSubscriber(emailAddress);
-		subscriber.addNotification(notifMessage);
-	}
+		else {
+
+				if (subscriberExists(emailAddress)  == false){
+					createSubscriber(emailAddress);		
+				}
+					
+				Subscriber subscriber = getSubscriber(emailAddress);
+				subscriber.addNotification(notifMessage);
+		}
+    }
 		
 	private Subscriber getSubscriber(String emailAddress) {
 		return subscribers.get(emailAddress);
@@ -24,8 +30,10 @@ public class SubscriberManager {
 		
 		
 	private boolean subscriberExists(String emailAddress) {
-		//Would it be better to have a boolean variable to ensure the function returns with value? 
-		// Add test that emailAddress is not null
+		// Add test that emailAddress is not null - 
+		// not really happy doing the test here - if the email address is null we have a problem
+		// and there is no point in creating a subscriber with null email address
+		// such an error should be handled elsewhere.  But where?
 		if ( subscribers.containsKey(emailAddress) ) {
 	    	return true;
 	      }
@@ -41,21 +49,22 @@ public class SubscriberManager {
 		System.out.println("Adding new subscriber: " + emailAddress);
 	}
 	
-    private void setNotificationMessage(String emailAddress, String notifMessage) {
-	    subscribers.get(emailAddress).addNotification(notifMessage);
-	    System.out.println("Adding notification for subscriber: " + emailAddress);
-    }
-    
+//    private void setNotificationMessage(String emailAddress, String notifMessage) {
+//	    subscribers.get(emailAddress).addNotification(notifMessage);
+//	    System.out.println("Adding notification for subscriber: " + emailAddress);
+//    }
     
     public void printList() {
     	printAll(subscribers);
     }
     
     public static void printAll(Map <String, Subscriber> mp) {
-        System.out.println("\nAll entries in List");
-        System.out.println("===================");
-	    for(Map.Entry<String, Subscriber> entries : mp.entrySet()) {
+        System.out.println("\nHere are all Subscribers and their notifications");
+        System.out.println("================================================");
+	    for(Map.Entry<String, Subscriber> subscribers : mp.entrySet()) {
 	    	//System.out.println(entries.getKey() + ": " + entries.getValue().getNotificationMessage());
+	    	System.out.println("\n" + subscribers.getKey() + ": " + subscribers.getValue().getEmailAddress());
+	    	subscribers.getValue().showNotifications();
 	//    	entries.getValue().showAll();
 	    }
 	}
